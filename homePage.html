@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Screen Rental</title>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="">
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        .sidebar {
+            position: absolute;
+            height: 90.5vh;
+        }
+
+        .card {
+            position: relative;
+            left: 40vw;
+            top: 40vh;
+            transform: translate(-50%, -50%);
+        }
+
+        .card-img-top {
+            filter: blur(0.5rem);
+        }
+
+        .image {
+
+            display: none;
+            position: fixed;
+            top: 0%;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9;
+            background-color: rgba(0, 0, 0, 0.92);
+            background-blend-mode: darken;
+
+        }
+
+        .image #img {
+            position: relative;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: 50vh;
+        }
+
+        #img img {
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid white;
+        }
+
+        #img #close {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 100%;
+            transform: translate(-100%, 0%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #555;
+            color: white;
+            font-size: 200%;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.2);
+            background-blend-mode: darken;
+        }
+
+        #img #next {
+            font-size: 5vw;
+            border: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(0, 0, 0, 0);
+        }
+
+        #img #next:hover {
+            color: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+        }
+
+        #im1 {
+            transform: rotate(-19deg);
+        }
+
+        #im2 {
+            transform: rotate(-10deg);
+        }
+
+        #im3 {
+            z-index: 3;
+        }
+
+        #img p {
+            font-size: large;
+            color: white;
+            position: absolute;
+            top: 100%;
+            transform: translate(50%, -120%);
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: darken;
+        }
+
+        .eye {
+            padding-top: 0%;
+            font-size: 10vw;
+            position: absolute;
+            bottom: 0%;
+            font-size: 1.9vw;
+            transform: translate(0%, -15%);
+            z-index: 4;
+            left: 3vw;
+            background-color: rgba(0, 0, 0, 0.4);
+            background-blend-mode: darken;
+        }
+
+        .unseen,
+        .seen {
+            display: block;
+            cursor: pointer;
+            border: none;
+            height: 5vh;
+
+        }
+
+        .unseen {
+            color: black;
+        }
+
+        .seen {
+            color: #7F00FF;
+            display: none;
+        }
+
+
+
+        #learnMore {
+            display: none;
+            position: absolute;
+            z-index: 4;
+            top: 100%;
+            left: 100%;
+            padding-left: 0%;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: darken;
+            border: none;
+            transform: translate(-100%, -100%);
+            width: 12vw;
+            height: 5vh;
+            color: white;
+        }
+
+        .swipe {
+            position: relative;
+            -webkit-animation: myfirst 2s infinite;
+            /* Chrome, Safari, Opera */
+            animation: myfirst 2s;
+
+        }
+
+        /* Chrome, Safari, Opera */
+        @-webkit-keyframes myfirst {
+            0% {
+                left: 0px;
+                top: 0px;
+                -webkit-transform: rotate(0deg);
+            }
+
+            50% {
+                left: 100%;
+                margin-left: -100px;
+                -webkit-transform: rotate(360deg);
+                -webkit-transform: translate(10%, -100%);
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+                -webkit-transform: rotate(-19deg);
+                z-index: 1;
+
+            }
+        }
+
+        .remove {
+            position: relative;
+            -webkit-animation: mySecond 2s infinite;
+            /* Chrome, Safari, Opera */
+            animation: mySecond 2s;
+
+        }
+
+        /* Chrome, Safari, Opera */
+        @-webkit-keyframes mySecond {
+            0% {
+                left: 0px;
+                top: 0px;
+                -webkit-transform: rotate(0deg);
+            }
+
+            50% {
+                left: 100%;
+                margin-left: -100px;
+                -webkit-transform: rotate(360deg);
+                -webkit-transform: translate(10%, -100%);
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+                -webkit-transform: rotate(-19deg);
+                z-index: 1;
+
+            }
+        }
+
+        @media only screen and (max-width:600px) {
+            .card {
+                position: relative;
+                left: 45vw;
+                top: 30vh;
+                transform: translate(-50%, -50%);
+            }
+
+            .image {
+
+                /* display: none; */
+                position: fixed;
+                top: 0%;
+                /* padding: 50vh 50vw 50vh 50vw; */
+                width: 100vw;
+                height: 100vh;
+                z-index: 9;
+                background-color: rgba(0, 0, 0, 0.92);
+                background-blend-mode: darken;
+
+            }
+
+            .image #img {
+                position: relative;
+                top: 50vh;
+                left: 50vw;
+                transform: translate(-50%, -50%);
+                width: 90vw;
+                height: 50vh;
+            }
+
+            #img img {
+                width: 100%;
+                height: 100%;
+            }
+
+            #img #close {
+                display: block;
+                position: absolute;
+                top: 0%;
+                left: 100%;
+                transform: translate(-100%, 0%);
+                -ms-transform: translate(-50%, -50%);
+                color: white;
+                font-size: 200%;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0.5);
+                background-blend-mode: darken;
+            }
+
+            #img #next {
+                font-size: 10vw;
+                border: none;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-100%, -50%);
+                color: rgba(0, 0, 0, 0.5);
+            }
+
+            #im1 {
+                transform: rotate(-19deg);
+            }
+
+            #im2 {
+                transform: rotate(-10deg);
+            }
+
+            #im3 {
+                z-index: 3;
+            }
+
+            #openedEye,
+            #closedEye {
+                font-size: 8vw;
+                left: 15%;
+            }
+
+            #closedEye {
+                left: 25%;
+            }
+
+            #learnMore {
+                position: absolute;
+                z-index: 4;
+                top: 100%;
+                left: 100%;
+                padding-left: 0%;
+                background-color: rgba(0, 0, 0, 0.5);
+                background-blend-mode: darken;
+                border: none;
+                width: 30vw;
+                height: 5vh;
+                color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Responsive navbar-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Screen Rental <button
+                    class="sidebarbtn btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle"
+                    href="#!"><i class="fas fa-bars"></i></button>
+        </div></a>
+
+    </nav>
+
+    <div id="layoutSidenav" class="sidebar">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">
+                            Account
+                        </div>
+                        <a class="nav-link" href="index.html">
+                            <span class="sb-nav-link-icon"> <i class="fa-solid fa-user"></i></span>
+                            Log-out
+                        </a>
+                        <a class="nav-link" href="settings.html">
+                            <span class="sb-nav-link-icon"> <i class="bi bi-gear-fill"></i></span>
+                            Settings
+                        </a>
+                        <div class="sb-sidenav-menu-heading">points</div>
+                        <div class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-p"></i></div>
+                            <span>points : <span class="points">0 points</span></span>
+                        </div>
+
+
+                        <a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-cash-register"></i></div>
+                            manage your points
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    username
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Page content-->
+    <div class="container">
+        <div class="text-center mt-5">
+            <h1></h1>
+            <p class="lead"></p>
+            <div class="card" style="width: 18rem;">
+                <img src="img/lighthouse-7296029.jpg" class="card-img-top" alt="Ads">
+                <div class="card-body">
+                    <h5 class="card-title">Look @ the screen and win!
+                    </h5>
+                    <p class="card-text">click the button below to see ads and win points!</p>
+                    <button type="button" class="btn btn-primary" id="imageButton">open
+                        Ads</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image">
+        <div id="img">
+
+            <img src="img/lighthouse-7296029.jpg" alt="Ads" id="im1" style="z-index: 1;">
+            <img src="img/road-220058.jpg" alt="" id="im2" style="z-index: 2;">
+            <img src="img/téléchargement.png" alt="" id="im3" style="z-index: 3;">
+            <button id="close" style="z-index: 3;"><i class="bi bi-x-lg"></i></button>
+            <i class="bi bi-arrow-right-circle-fill" id="next" style="z-index: 4;"></i>
+            <p style="z-index: 4;"></p>
+            <div class="eye">
+                <i class="bi bi-eye-slash  unseen"></i>
+                <i class="bi bi-eye seen"></i>
+            </div>
+            <button href="#" id="learnMore"><i class="bi bi-link-45deg"></i>Learn More</button>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="screenrental.js"></script>
+</body>
+
+</html>

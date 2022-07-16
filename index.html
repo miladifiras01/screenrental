@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Screen Rental</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+</head>
+
+<body>
+    <!-- login Page start -->
+    <div class="loginsignup">
+        <div id:="container">
+            <div class="row justify-content-between">
+                <div class="content-left">
+                    <h1>Screen Rental</h1>
+                    <h2>Look @ the screen and win! </h2>
+                </div>
+                <div class="content-right">
+                    <form action="">
+                        <div class="form-group">
+                            <input type="text" placeholder="Email address or phone number">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password">
+                        </div>
+                        <div class="login">
+                            <a href="homePage.html" class="btn">log in</a>
+                        </div>
+                        <!-- <div class="forgot">
+                            <a href="">Forgotten account?</a>
+                        </div> -->
+                        <div class="create-btn">
+                            <button class="btn" type="button">create new account</button>
+                        </div>
+                    </form>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login Page end -->
+    <div id="create">
+        <form action="index.html" method="get">
+            <div class="row-1">
+                <b>Sign Up</b>
+                <button id="close" type="button"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="row-2">
+                <input type="text" placeholder="first name" class="form-control">
+                <input type="text" placeholder="last name">
+            </div>
+            <div class="row-3">
+                <input type="email" placeholder="email">
+            </div>
+            <div class="row-4">
+                <input type="password" placeholder="password">
+            </div>
+            <div class="row-5">
+                <select name="country" class="countries" id="countryId">
+                    <option value="">Select Country</option>
+                </select>
+                <select name="state" class="states" id="stateId">
+                    <option value="">Select State</option>
+                </select>
+            </div>
+            <div class="row-6">
+                <input type="text" placeholder="phone number" pattern="[0-9]{8}">
+            </div>
+            <div class="row-7">
+                <label for="birthday">birthday</label>
+                <input type="date" name="birthday" id="birthday">
+            </div>
+            <div class="row-8">
+                <!-- <label for="gender">gender</label> -->
+                <br>
+                <span id="male"> <label for="omale"> male <input type="radio" name="gender" value="male" id="omale">
+                    </label>
+                </span>
+                <span id="female"><label for="ofemale"> female<input type="radio" name="gender" value="female"
+                            id="ofemale"> </label></span>
+                <span id="other"><label for="oother"> other<input type="radio" name="gender" value="other"
+                            id="oother"></label></span>
+            </div>
+            <div class="row-9">
+                <button type="submit" class="btn">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <script src="landingPageForm.js"></script>
+</body>
+
+</html>
