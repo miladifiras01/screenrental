@@ -176,6 +176,7 @@
     .row-1 #close {
         grid-row: 1;
         grid-column: 2;
+        font-size: 2.5vw;
         background-color: white;
         border: none;
         cursor: pointer;
@@ -289,6 +290,7 @@
     }
 
     body {
+        /* padding-left: 10%; */
         font-family: arial;
         font-size: 5vw;
         color: #1c1e21;
@@ -366,7 +368,7 @@
         font-size: 6vw;
         background: var(--buttonColor);
         height: 8vh;
-        color: #fff;
+        color: black;
         line-height: 50px;
         border-radius: 5px;
         margin-bottom: 20px;
@@ -409,4 +411,147 @@
         color: #1c1e21;
         font-weight: 600;
     }
+
+    #create {
+        display: none;
+        position: fixed;
+        top: 0%;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #create form {
+        position: absolute;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        height: 90vh;
+        width: 90vw;
+        display: grid;
+        row-gap: 0.5%;
+        grid-template-rows: 9.8% 9.8% 9.8% 9.8% 9.8% 9.8% 9.8% 9.8% 9.8% 9.8%;
+    }
+
+    .row-1 {
+        grid-row: 1;
+        display: grid;
+        grid-template-columns: 75% 25%;
+    }
+
+    .row-1 b {
+        grid-row: 1;
+        grid-column: 1;
+        font-size: 200%;
+    }
+
+    .row-1 #close {
+        grid-row: 1;
+        grid-column: 2;
+        font-size: 10vh;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .row-2 {
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 49% 49%;
+        column-gap: 2%;
+    }
+
+    #create form input:not(input[type="radio"]) {
+        width: 80%;
+        height: 40px;
+        font-size: 17px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0 15px;
+        margin-bottom: 15px;
+    }
+
+    #create form input:hover {
+        border: 2px solid #1c1e21;
+        background: #f0f2f5;
+    }
+
+    .row-3 {
+        grid-row: 3;
+    }
+
+    .row-4 {
+        grid-row: 4;
+    }
+
+    .row-5 {
+        grid-row: 5;
+    }
+
+    .countries,
+    .states {
+        width: 40%;
+        border: 1px solid #777;
+        border-radius: 0.25em;
+        padding: 0.25em 0.5em;
+        height: 30px;
+        cursor: pointer;
+        line-height: 1.1;
+        background-color: #fff;
+        background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    }
+
+
+    .row-6 {
+        grid-row: 6;
+    }
+
+    .row-7 {
+        grid-row: 7;
+    }
+
+    .row-8 {
+        grid-row: 8;
+        display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+    }
+
+    #male,
+    #female,
+    #other {
+        border: 1px solid #777;
+    }
+
+    #male {
+        grid-column: 1;
+    }
+
+
+
+    .row-9 input {
+        width: 25vw;
+    }
+
+    .row-9 {
+        grid-row: 9;
+
+    }
+
+    .row-9 button {
+        position: absolute;
+        left: 50%;
+        width: 40vw;
+        transform: translate(-50%, 0%);
+        border: 1px solid #777;
+    }
+
+    .row-9 button:hover {
+        border: 1px solid black;
+    }
+
+    .row-10 {
+        grid-row: 10;
+    }
+
 }

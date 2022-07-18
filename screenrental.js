@@ -107,22 +107,33 @@ next.addEventListener("mouseenter",
         learnMore.style.display = "block";
     }
 )
+var indexes = Array();
+var n = 0;
 next.addEventListener("click",
     () => {
+        if (n == 3) {
+            imageContainer.style.display = 'none';
+        }
+        indexes = [];
         images.forEach(element => {
-            if (element.style.zIndex == 3) {
+            indexes.push(element.style.zIndex);
+        });
+        images.forEach((element) => {
+            if (element.style.zIndex == Math.max(...indexes)) {
                 if (done != 1) {
-                    element.classList.add('swipe')
+                    element.classList.add('swipe');
                     element.style.transform = "rotate(-19deg)";
                     next.style.display = "none";
                     setTimeout(() => {
-                        element.style.zIndex = 1;
+                        element.style.zIndex = Math.min(...indexes);
                     }, 1000);
                 }
                 else {
                     element.classList.add('remove');
                     setTimeout(() => {
                         element.remove();
+                        n += 1;
+
                     }, 1000);
                 }
                 setTimeout(() => {
@@ -131,13 +142,13 @@ next.addEventListener("click",
                 }, 2000);
             }
             else {
-                if (element.style.zIndex == 2) {
-                    element.style.zIndex = 3;
+                if (element.style.zIndex == Math.max(...indexes) - 1) {
+                    element.style.zIndex = Math.max(...indexes);
                     element.style.transform = "none";
                 }
                 else {
-                    if (element.style.zIndex == 1) {
-                        element.style.zIndex = 2;
+                    if (element.style.zIndex == Math.min(...indexes)) {
+                        element.style.zIndex = Math.min(...indexes) + 1;
                         element.style.transform = "rotate(-10deg)";
                         element.classList.remove("swipe");
                     }
